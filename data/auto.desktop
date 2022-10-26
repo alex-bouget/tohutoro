@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/mistermine01/.tohutoro/autostart.sh
+Hidden=false
+NoDisplay=false
+Name=tohutoro
+Comment=make an Autostart
+X-GNOME-Autostart-enabled=true
