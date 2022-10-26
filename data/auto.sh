@@ -10,6 +10,8 @@ function setIFS {
     IFS=$1
 }
 setIFS $'\n'
+
+
 for i in $data;
 do
     exec=$(cut -d' ' -f1 <<< $i)
