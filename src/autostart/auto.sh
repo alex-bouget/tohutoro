@@ -25,4 +25,6 @@ do
     fi
     setIFS $'\n'
 done
+
 IFS="$OIFS"
+cd $savePWD

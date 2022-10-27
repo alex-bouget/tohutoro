@@ -36,3 +36,6 @@ while [[ $userrep != "exit" ]]; do
         bash "autoshell/remove.sh"
     fi
 done
+
+IFS="$OIFS"
+cd $savePWD

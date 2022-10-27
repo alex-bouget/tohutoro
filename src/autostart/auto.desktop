@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec={file}
-Last=/home/mistermine01/.tohutoro/autostart.sh
+Exec=.
 Terminal=true
 Name=tohutoro
 Comment=make an Autostart
