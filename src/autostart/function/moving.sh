@@ -44,15 +44,15 @@ if [ "$s" = "NULL" ] || [ "$d" = "NULL" ]; then
     exit 2
 fi
 
-from=$s
-folder=$d
-if [ -d $folder ]; then
-    echo "${folder} already exist"
+source=$s
+destination=$d
+if [ -d $source ]; then
+    echo "${source} already exist"
 else
-    mkdir $folder
-    chmod 700 $folder
+    mkdir $source
+    chmod 700 $source
 fi
-if [ -d $from ]; then
-    rm -rf $from
+if [ -d $destination ]; then
+    rmdir $destination
 fi
-ln -s $folder $from
+ln -s $source $destination
