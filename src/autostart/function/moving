@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function Usage {
     cat <<EOF
 Create a link under a directory (source) in the destination.
@@ -49,10 +51,10 @@ destination=$d
 if [ -d $source ]; then
     echo "${source} already exist"
 else
-    mkdir $source
+    mkdir -p $source
     chmod 700 $source
 fi
 if [ -d $destination ]; then
     rmdir $destination
 fi
-ln -s $source $destination
+ln -s "$source" "$destination"
