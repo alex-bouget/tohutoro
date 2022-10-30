@@ -30,10 +30,10 @@ while [[ $userrep != "exit" ]]; do
         help
     fi
     if [ $userrep = "add" ]; then
-        bash "autoshell/add.sh"
+        nano autostart.data
     fi
     if [ $userrep = "remove" ]; then
-        bash "autoshell/remove.sh"
+        nano autostart.data
     fi
 done
 
