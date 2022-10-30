@@ -11,9 +11,11 @@ function setIFS {
 }
 setIFS $'\n'
 
+oldPATH=$PATH
 PATH="$PATH:$PWD/function"
 
 . autostart.data
 
+PATH=$oldPATH
 IFS="$OIFS"
 cd $savePWD
