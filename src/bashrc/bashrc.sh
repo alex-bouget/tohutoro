@@ -48,9 +48,11 @@ function setPS1 {
 
     line1="${carriage}${RED}${user}${YELLOW}@${GREEN}${host}${RESET} - ${CYAN}${time} ${PURPLE}&${GREEN}${UNDERLINE}${exitstatus}${RESET}"
 
-    line2="${carriage}${YELLOWBROWN}${path}${RESET}{${ROSE}${gitbranch}${ORANGE}${gitstatus}${RESET}} ${MAGENTA}${BLINK}$ ${RESET}"
+    line2="${carriage}${YELLOWBROWN}${path}${RESET}{${ROSE}${gitbranch}${ORANGE}${gitstatus}${RESET}}"
     
-    echo "${line1}${line2}"
+    line3="${carriage}${MAGENTA}${BLINK}$ ${RESET}"
+    
+    echo "${line1}${line2}${line3}"
 }
 PS1="$(setPS1)"
 
@@ -59,10 +61,10 @@ RED='\033[0;31m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+alias autoshell="~/.tohutoro/autostart/autoshell.sh"
+
 echo -e "-------------------------------
 Bonjour ${RED}${USER}${NC}
 <date: ${YELLOW}$(date +"%d-%m-%Y")${NC} >
 -------------------------------
 "
-
-#PS1='\n\[\e[0;38;5;196m\]\u\[\e[0;93m\]@\[\e[0;38;5;82m\]\h \[\e[0m\]- \[\e[0;38;5;26m\]\t \[\e[0;38;5;127m\]&\[\e[0;4;38;5;82m\]$?\n\[\e[0;38;5;214m\]\w\[\e[0m\]{\[\e[0;38;5;35m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[0m\]} \[\e[0;1;5;95m\]$ \[\e[0m\]'
