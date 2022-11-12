@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# tohutoro_version 1.1
+
 url="https://github.com/MisterMine01/tohutoro/releases/download/v1.1/tohutoro.zip"
 curl -L -o /tmp/tohutoro.zip $url
 unzip /tmp/tohutoro.zip -d /tmp/tohutoro
