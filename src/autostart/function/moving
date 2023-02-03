@@ -48,13 +48,13 @@ fi
 
 source=$s
 destination=$d
-if [ -d $source ]; then
+if [ -d "$source" ]; then
     echo "${source} already exist"
 else
     mkdir -p $source
     chmod 700 $source
 fi
-if [ -d $destination ]; then
-    rmdir $destination
+if [ -d "$destination" ]; then
+    rm "$destination"
 fi
 ln -s "$source" "$destination"
