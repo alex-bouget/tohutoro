@@ -9,10 +9,21 @@ if [ ! -d ~/.tohutoro ] ; then
     mkdir ~/.tohutoro
 else 
     echo "Directory ~/.tohutoro already exists"
+    rm /tmp/tohutoro/autostart/autostart.data
+    for file in $HOME/.tohutoro/bashrc/* ; do
+        shaHOME=$(sha256sum $file | awk '{print $1}')
+        shaTMP=$(sha256sum /tmp/tohutoro/bashrc/$(basename $file) | awk '{print $1}')
+        if [ "$shaHOME" == "$shaTMP" ] ; then
+            echo "File $file doesn't change, it will be updated"
+        else
+            echo "File $file has changed, it will not be updated"
+            rm /tmp/tohutoro/bashrc/$(basename $file)
+        fi
+    done
 fi
-cp -r /tmp/tohutoro/* ~/.tohutoro
+#cp -r /tmp/tohutoro/* ~/.tohutoro
 
-chmod +x -R ~/.tohutoro
+#chmod +x -R ~/.tohutoro
 rm -rf /tmp/tohutoro
 rm /tmp/tohutoro.zip
-~/.tohutoro/setup.sh
+#~/.tohutoro/setup.sh

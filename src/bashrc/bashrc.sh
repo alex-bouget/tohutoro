@@ -58,8 +58,8 @@ PS1="$(_setPS1)"
 
 # Change the dir of tohutoro
 
-#TOHUTORO_DIR="$HOME/.tohutoro"
-TOHUTORO_DIR="$HOME/Bureau/Git/Github/tohutoro/src"
+TOHUTORO_DIR="$HOME/.tohutoro"
+#TOHUTORO_DIR="$HOME/Bureau/Git/Github/tohutoro/src"
 
 
 RED='\033[0;31m'
@@ -68,8 +68,6 @@ NC='\033[0m'
 
 . ${TOHUTORO_DIR}/bashrc/tohutoro.sh
 . ${TOHUTORO_DIR}/bashrc/command.sh
-
-alias autoshell="${TOHUTORO_DIR}/autostart/autoshell.sh"
 
 
 echo -e "-------------------------------
