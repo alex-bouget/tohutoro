@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_git_data {
+function _get_git_data {
     git status --porcelain 2> /dev/null >/dev/null
     local status=$?
     local git_status="$(git status --porcelain 2> /dev/null)"
@@ -15,7 +15,7 @@ function get_git_data {
     echo "!$(wc -l <<< "$git_status")"
 }
 
-function setPS1 {
+function _setPS1 {
     RED='\[\e[0;38;5;196m\]'
     GREEN='\[\e[0;38;5;46m\]'
     YELLOW='\[\e[0;38;5;226m\]'
@@ -43,7 +43,7 @@ function setPS1 {
     carriage="\n"
     exitstatus="\$?"
     gitbranch="\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)"
-    gitstatus="\$(get_git_data)"
+    gitstatus="\$(_get_git_data)"
 
 
     line1="${carriage}${RED}${user}${YELLOW}@${GREEN}${host}${RESET} - ${CYAN}${time} ${PURPLE}&${GREEN}${UNDERLINE}${exitstatus}${RESET}"
@@ -54,14 +54,21 @@ function setPS1 {
     
     echo "${line1}${line2}${line3}"
 }
-PS1="$(setPS1)"
+PS1="$(_setPS1)"
+
+# Change the dir of tohutoro
+
+TOHUTORO_DIR="$HOME/.tohutoro"
+#TOHUTORO_DIR="$HOME/Bureau/Git/Github/tohutoro/src"
 
 
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-alias autoshell="~/.tohutoro/autostart/autoshell.sh"
+. ${TOHUTORO_DIR}/bashrc/tohutoro.sh
+. ${TOHUTORO_DIR}/bashrc/command.sh
+
 
 echo -e "-------------------------------
 Bonjour ${RED}${USER}${NC}
